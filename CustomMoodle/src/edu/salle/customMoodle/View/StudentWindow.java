@@ -44,7 +44,7 @@ public class StudentWindow extends javax.swing.JFrame {
         Object[] emptyRow = {""};
         
         for (int i = 0; i < studentList.size(); i++) {
-            dtm.addColumn(emptyRow);
+            dtm.addRow(emptyRow);
             dtm.setValueAt(studentList.get(i).getId(), i, 0);
             dtm.setValueAt(studentList.get(i).getName(), i, 1);
             dtm.setValueAt(studentList.get(i).getLastName(), i, 2);
