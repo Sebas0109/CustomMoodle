@@ -42,4 +42,18 @@ public class StudentBLO {
         return studentDAO.find(id);
     }
     
+    public Student findByLastName(String lastName)
+    {
+        return studentDAO.findByLastName(lastName);
+    }
+    
+    public void delete(Student student) //como es void solo se pone lo que hace no lo que retirna 
+    {
+        studentDAO.delete(student);
+    }
+    
+    public void update(Student student)
+    {
+        studentDAO.update(student);
+    }  
 }

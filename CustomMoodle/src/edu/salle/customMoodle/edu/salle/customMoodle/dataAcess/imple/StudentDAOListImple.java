@@ -8,7 +8,9 @@ package edu.salle.customMoodle.edu.salle.customMoodle.dataAcess.imple;
 import edu.salle.customMoodle.edu.salle.customMoodle.dataAcess.StudentDAO;
 import edu.salle.customMoodle.edu.salle.customMoodle.model.Student;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -41,7 +43,27 @@ public class StudentDAOListImple implements StudentDAO {
         }
         return null; //en caso de que no encuentre 
     }
-    
-    
-    
+
+    @Override
+    public Student findByLastName(String lastName) {
+        lastName = lastName = lastName.toLowerCase().trim(); //trim para quitar espacios
+        for (Student student : studentList) {
+            if (student.getLastName().toLowerCase().contains(lastName)) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void delete(Student student) {
+        studentList.remove(student);
+    }
+
+    @Override
+    public void update(Student student) {
+        int pos = studentList.indexOf(student);
+        studentList.set(pos, student);
+        
+    }
 }
